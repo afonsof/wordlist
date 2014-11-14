@@ -12,26 +12,26 @@ function download(movies)
 	console.log(movie);
 
 	console.log("logging in...");
-	opensubtitles.api
-	    .login()
-	    .done(function(token){
+	opensubtitles
+	.api
+	.login()
+	.done(function(token){
 		console.log("searching...");
 		opensubtitles.api
 		.search(token, "eng", movie)
 		.done(function(results) {
-		    console.log("downloading...");
-		    opensubtitles.downloader.download(results, 1, null, function(){
-		        console.log("done");
+			console.log("downloading...");
+			opensubtitles.downloader.download(results, 1, null, function(){
+				console.log("done");
 			download(movies);
-		    });
+			});
 		});
-	    });
+	});
 }
-
 download(movies);
 
 fs.readdir(".", function(err, files) {
-        var items = {};
+	var items = {};
 	for(var i = 0; i < files.length; i++){
 		var file = files[i];
 		if(file.indexOf(".srt") > -1) {
@@ -43,7 +43,7 @@ fs.readdir(".", function(err, files) {
 		sortable.push([item, items[item]]);
 	}
 	sortable.sort(function(a, b) {return a[1] - b[1]})
-
+	fs.writeFile('teste.json', JSON.stringify(sortable), function(){});
 	console.log(sortable);
 });
 
