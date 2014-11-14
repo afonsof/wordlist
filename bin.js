@@ -11,7 +11,19 @@ function main(wl) {
 				.parse();
 
 	if(ap.arg(0) == "add") {
-		wl.collections.word.create({ name: ap.arg(1), know: ap.opt("iknow") }).exec(function(err, user) {});
+		var name = ap.arg(1).toLowerCase();
+		wl.collections.word.count({ name: name }).exec(function(err, count) {
+			if( count > 0 ) {
+				wl.collections.word.update({ name: name }, { know: ap.opt("iknow") }).exec(function(err, users) {
+					console.log("This word already exists and was updated.");
+				});
+				return;
+			}
+				
+			wl.collections.word
+				.create({ name: name, know: ap.opt("iknow") })
+				.exec(function(err, user) {});
+		});
 	}
 }
 
