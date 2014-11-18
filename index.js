@@ -8,7 +8,7 @@ function download(movies)
 {
 	if(movies.length == 0) return;
 
-	var movie = movies.pop(); 
+	var movie = movies.pop();
 	console.log(movie);
 
 	console.log("logging in...");

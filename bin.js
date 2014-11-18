@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-var appModule = require("./lib/app");
-var wr = require("./lib/wordRepo");
+var appModule = require("./lib/App");
+var wr = require("./lib/WordRepo");
 
-var setupWaterline = require('./lib/waterline-bootstrap');
+var setupWaterline = require('./lib/WaterlineBootstrap');
 setupWaterline({
     adapters: {
         'sails-disk': require('sails-disk')
