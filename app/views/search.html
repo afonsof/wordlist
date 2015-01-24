@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <h1>Busca de Hotéis</h1>
+
+        <div class="hotel col-md-3">
+            <div class="form-group">
+                <label>Digite a cidade de destino</label>
+                <angucomplete id="city" name="city"
+                              pause="400"
+                              selectedobject="query.cityInput"
+                              url="/api/cities?q="
+                              titlefield="city"
+                              inputclass="form-control form-control-small"/>
+            </div>
+
+            <div class="form-group">
+                <label>Check-in</label>
+                <input class="form-control form-control-small" ui-date ui-date-format="yy-mm-dd"
+                       ng-model="query.checkin">
+            </div>
+            <div class="form-group">
+                <label>Check-out</label>
+                <input class="form-control form-control-small" ui-date ui-date-format="yy-mm-dd"
+                       ng-model="query.checkout">
+            </div>
+
+            <button class="btn btn-primary"
+                    ng-click="search(hotel)"
+                    ng-disabled="query.checkin == null || query.checkout == null || query.cityInput.title == null">
+                Buscar
+            </button>
+        </div>
+        <div class="table-responsive col-md-9">
+            <div ng-show="hotels.length == 0">lalala</div>
+            <table class="table table-striped" ng-show="hotels.length > 0">
+                <thead>
+                <tr>
+                    <th>Hotel</th>
+                    <th>Cidade</th>
+                    <th>Diária</th>
+                    <th>Quartos disponíveis</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="hotel in hotels">
+                    <td>{{hotel.name }}</td>
+                    <td>{{hotel.city }}</td>
+                    <td>R$ {{hotel.nightly }}</td>
+                    <td>{{hotel.available}}/{{hotel.roomCount}}</td>
+                    <td>
+                        <button type="submit" ng-show="hotel.available > 0"
+                                ng-click="book(hotel)" class="btn">
+                            <span class="glyphicon glyphicon-plus"></span> Reservar
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

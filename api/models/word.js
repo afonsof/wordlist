@@ -4,6 +4,13 @@ module.exports = function (sequelize, DataTypes) {
         text: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        known: DataTypes.BOOLEAN
+    }, {
+        classMethods: {
+            associate: function (models) {
+                Word.hasMany(models.Document, { through: 'document_words'});
+            }
         }
     });
     return Word;

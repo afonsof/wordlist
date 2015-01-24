@@ -23,11 +23,16 @@ coverage
 build/Release
 
 # Dependency directory
+# Commenting this out is preferred by some people, see
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
 
 # Ide
 .idea
 
-# Temporary databases
+# Temporary files
 *.sqlite3
+.tmp
+
+#Bower files
+app/lib
