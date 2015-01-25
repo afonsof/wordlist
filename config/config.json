@@ -1,0 +1,31 @@
+{
+  "development": {
+    "db": {
+      "dialect": "sqlite",
+      "storage": "dev-data.sqlite3"
+    },
+    "passport": {
+      "clientID": "1596529033898740",
+      "clientSecret": "5e374145c15773187afdee31597fca43",
+      "callbackURL": "http://localhost:3000/auth/facebook/callback"
+    }
+  },
+  "test": {
+    "db": {
+      "username": "root",
+      "password": null,
+      "database": "database_test",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    }
+  },
+  "production": {
+    "db": {
+      "username": "root",
+      "password": null,
+      "database": "database_production",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    }
+  }
+}

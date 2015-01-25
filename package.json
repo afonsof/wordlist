@@ -19,6 +19,9 @@
     "lodash": "~2.4.1",
     "inquirer": "~0.8.0",
     "argparser": "~0.2.2",
-    "ejs": "~2.2.3"
+    "ejs": "~2.2.3",
+    "passport": "~0.2.1",
+    "passport-facebook": "~1.0.3",
+    "express-session": "~1.10.1"
   }
 }
